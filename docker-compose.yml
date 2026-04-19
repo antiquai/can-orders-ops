@@ -1,0 +1,67 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  gateway:
+    build: ./gateway
+    volumes:
+      - ./gateway:/app
+    env_file: .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+
+
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  worker-writer:
+    build: ./worker-writer
+    volumes:
+      - ./worker-writer:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    env_file: .env
+    depends_on:
+      - redis
+      - db
+
+# quantity of workers
+    deploy:
+      replicas: 2
+
+  worker-sender:
+    build: ./worker-sender
+    volumes:
+      - ./worker-sender:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    env_file: .env
+    depends_on:
+      - redis
+
+# quantity of workers
+    deploy:
+      replicas: 2
+
+volumes:
+  postgres_data:
