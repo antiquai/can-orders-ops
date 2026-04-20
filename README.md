@@ -13,34 +13,27 @@ Built to handle real-world e-commerce traffic spikes without blocking users or c
 
 [//]: # (**Live Demo:** [Add Vercel / Railway link here])
 
-<!-- Replace these with your actual screenshots/GIFs -->
-Ordering: 
+### Ordering: 
 <img width="1864" height="925" alt="Screenshot 2026-04-20 190108" src="https://github.com/user-attachments/assets/dd676b50-ab1d-4f3a-9487-64c1cf939631" />
 
 ---
 
-OUTPUTS:
+### OUTPUTS:
 
 ---
 
-- SERVER:
+- **SERVER**:
     <img width="613" height="340" alt="Screenshot 2026-04-20 190359" src="https://github.com/user-attachments/assets/490ccd36-014f-4677-800c-3c991fbd1469" />
 
 ---
 
-- DB:
+- **DB**:
       <img width="1658" height="100" alt="Screenshot 2026-04-20 190513" src="https://github.com/user-attachments/assets/ec88fc4e-1824-4708-9d42-81e3153b0b11" />
       
 ---
 
-- EMAIL:
+- **EMAIL**:
         <img width="803" height="1280" alt="photo_2026-04-20_19-10-00" src="https://github.com/user-attachments/assets/56f3826d-6b2f-4625-bbbf-518484f647ad" />
-
-
-
-![Pinterest-style Email Receipt](https://via.placeholder.com/800x400/1e3a8a/ffffff?text=Pinterest-style+HTML+Receipt)
-
-> *Pinterest-style animated receipt email sent automatically after every order*
 
 ---
 
